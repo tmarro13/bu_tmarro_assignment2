@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+button, select {
+    margin: 0 5px;
+    padding: 5px 10px;
+}
+
+#chart {
+    width: 500px;
+    height: 300px;
+}
