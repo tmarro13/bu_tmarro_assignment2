@@ -28,4 +28,3 @@ jobs:
     - name: Check if application is running
       run: |
         curl http://localhost:3000 || exit 1
-let chart;
