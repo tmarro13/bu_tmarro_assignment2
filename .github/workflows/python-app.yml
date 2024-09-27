@@ -2,34 +2,29 @@ name: Python application
 
 on:
   push:
-    branches: [ '*' ]
+    branches: [ master ]
   pull_request:
-    branches: [ '*' ]
+    branches: [ master ]
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
-
-    - name: Set up Python
+    - name: Set up Python 3.9
       uses: actions/setup-python@v2
       with:
-        python-version: '3.12'
-
-    - name: Install pip, setuptools, and six
-      run: |
-        python -m pip install --upgrade pip setuptools
-        python -m pip install --upgrade six
-
+        python-version: 3.9
     - name: Install dependencies
-      run: make install
-
-    - name: Run the application
+      run: |
+        python -m pip install --upgrade pip
+        make install
+    - name: Run application
       run: |
         make run &
-        sleep 10  # Sleep for 10 seconds to allow the server to start
-
-    - name: Test if the server is running
-      run: curl http://localhost:3000
+        sleep 5
+    - name: Check if application is running
+      run: |
+        curl http://localhost:3000 || exit 1
