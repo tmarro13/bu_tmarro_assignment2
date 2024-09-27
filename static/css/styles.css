@@ -1,21 +1,116 @@
+/* General body styling */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling */
+header {
+    background-color: #4a90e2;
+    color: white;
     padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.controls {
-    margin-bottom: 20px;
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 1.2px;
 }
 
-button, select {
-    margin: 0 5px;
-    padding: 5px 10px;
+/* Container for the main content */
+.container {
+    margin: 40px auto;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-#chart {
-    width: 500px;
-    height: 300px;
+/* Dropdown and Button styling */
+select, button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    margin-right: 10px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+/* Select dropdown */
+select {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+select:hover {
+    background-color: #eaeaea;
+}
+
+/* Button styling */
+button {
+    background-color: #4a90e2;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #357ab9;
+}
+
+/* Styling for the plot area */
+.plot-area {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+canvas {
+    border: 2px solid #4a90e2;
+    border-radius: 8px;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #4a90e2;
+    color: white;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Responsive layout for mobile */
+@media only screen and (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .container {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    button, select {
+        margin-bottom: 15px;
+    }
+
+    canvas {
+        width: 100%;
+        height: auto;
+    }
 }
