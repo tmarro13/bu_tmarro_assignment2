@@ -16,13 +16,12 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.12'  # Explicitly set Python 3.12
+        python-version: '3.12'
 
-    # Install pip upgrade and setuptools/distutils via pip
-    - name: Install pip, setuptools, and distutils
+    - name: Install pip, setuptools, and six
       run: |
         python -m pip install --upgrade pip setuptools
-        python -m pip install --upgrade wheel
+        python -m pip install --upgrade six
 
     - name: Install dependencies
       run: make install
