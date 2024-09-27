@@ -18,15 +18,17 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: Install distutils
-      run: sudo apt-get update && sudo apt-get install python3-distutils
+    - name: Install build tools (setuptools and distutils)
+      run: |
+        sudo apt-get update
+        sudo apt-get install python3-setuptools python3-distutils
 
     - name: Install dependencies
       run: make install
 
     - name: Run the application
       run: make run &
-        sleep 10  # Wait for the server to start
+      sleep 10  # Sleep for 10 seconds to allow the server to start
 
-    - name: Test the server
+    - name: Test if the server is running
       run: curl http://localhost:3000
