@@ -16,16 +16,17 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.x'  # Choose your Python version
+        python-version: '3.x'
+
+    - name: Install distutils
+      run: sudo apt-get update && sudo apt-get install python3-distutils
 
     - name: Install dependencies
-      run: |
-        make install
+      run: make install
 
     - name: Run the application
-      run: |
-        make run &
-        sleep 10  # Sleep for 10 seconds to give the server time to start up
+      run: make run &
+        sleep 10  # Wait for the server to start
 
-    - name: Test if the server is running
+    - name: Test the server
       run: curl http://localhost:3000
