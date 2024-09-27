@@ -1,0 +1,31 @@
+name: Python application
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'  # Choose your Python version
+
+    - name: Install dependencies
+      run: |
+        make install
+
+    - name: Run the application
+      run: |
+        make run &
+        sleep 10  # Sleep for 10 seconds to give the server time to start up
+
+    - name: Test if the server is running
+      run: curl http://localhost:3000
